@@ -45,9 +45,9 @@ module Cajero (
             PIN_INCORRECTO          <= 0;
             ADVERTENCIA             <= 0;
             BLOQUEO                 <= 0;
-            casi_bloqueado	        <= 0;
+            // casi_bloqueado	        <= 0;
 
-            BALANCE_ACTUALIZADO     <= 0;
+            // BALANCE_ACTUALIZADO     <= 0;
             BALANCE_STB             <= 0;
             FONDOS_INSUFICIENTES    <= 0;
             ENTREGAR_DINERO         <= 0;
@@ -68,9 +68,12 @@ module Cajero (
 		        end
 
                 INGRESANDO_PIN: begin
+                    if (intentos_fallidos == 2'd1) begin
+                        PIN_INCORRECTO <= 1;
                     // si hay 2 intentos fallidos se da una advertencia
-                    if (intentos_fallidos == 2'd2) begin 
+                    end else if (intentos_fallidos == 2'd2) begin 
                         ADVERTENCIA <= 1;
+                        PIN_INCORRECTO <= 0;
                     // si hay 3 intentos se bloquea
                     end else if (intentos_fallidos == 2'd3) begin
                     	// se pasa ADVERTENCIA a 0, BLOQUEO a 1 y se cambia de estado a BLOQUEADO
@@ -82,10 +85,10 @@ module Cajero (
                         ADVERTENCIA <= 0;
                     end
                     
-                    // Si DIGITO_STB = 1 e intentos fallidos es menor a 3 
+                    // Si DIGITO_STB = 1 e intentos fallidos es menor a 1
                     if (DIGITO_STB && (intentos_fallidos < 3)) begin
                     	// Se coloca PIN_INCORRECTO = 0
-                        PIN_INCORRECTO <= 0;
+                        // PIN_INCORRECTO <= 0;
                         // cantidad_digitos funciona como un contador que indica cuántos dígitos del PIN ya se han ingresado.
                         case (cantidad_digitos) 
                             // Si cantidad_digitos es 2'b00 (o sea, 0 en decimal), ejecuta lo que está en el bloque
@@ -108,7 +111,6 @@ module Cajero (
                                 estado <= ANALIZANDO_PIN;
                             end
                         endcase
-
                     end else if (intentos_fallidos < 3) begin
                         estado <= INGRESANDO_PIN;
                     end
@@ -122,6 +124,11 @@ module Cajero (
                         PIN_INCORRECTO <= 1;
                         // Se devuelve al estado de INGRESANDO_PIN
                         estado <= INGRESANDO_PIN;
+                        if (intentos_fallidos < 3) begin
+                            estado <= INGRESANDO_PIN;
+                        end else begin
+                            estado <= BLOQUEADO;
+                        end
                     end else begin
                         estado <= DETERMINAR_TRANSACCION;
                     end
@@ -152,13 +159,13 @@ module Cajero (
 
                 PROCESANDO_RETIRO: begin
                     if (MONTO_STB) begin
-                        // Se verifica si MONTO es mayor a BALANCE_INICIAL
-                        if (MONTO > BALANCE_INICIAL) begin
+                        // Se verifica si MONTO es mayor a BALANCE_ACTUALIZADO
+                        if (MONTO > BALANCE_ACTUALIZADO) begin
                             FONDOS_INSUFICIENTES <= 1;
                             BALANCE_STB <= 1;
                             estado <= FIN;
                         end else begin
-                            BALANCE_ACTUALIZADO  <= BALANCE_INICIAL - MONTO;
+                            BALANCE_ACTUALIZADO  <= BALANCE_ACTUALIZADO - MONTO;
                             BALANCE_STB <= 1;
                             ENTREGAR_DINERO <= 1;
                             estado <= FIN;
@@ -174,7 +181,7 @@ module Cajero (
                         intentos_fallidos       <= 0;
                         PIN_ACTUAL              <= 0;
                         estado                  <= ESPERANDO_TARJETA;
-                        BALANCE_ACTUALIZADO     <= 0;
+                        // BALANCE_ACTUALIZADO     <= 0;
                         ADVERTENCIA             <= 0;
                         BLOQUEO                 <= 0;
                         BALANCE_STB             <= 0;

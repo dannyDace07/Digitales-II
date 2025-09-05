@@ -21,41 +21,37 @@ module tester(
         DIGITO_STB = 0;
         TIPO_TRANS = 0;
         MONTO_STB = 0;
-        PIN_CORRECTO = 16'd0;
         DIGITO = 4'd0;
         BALANCE_INICIAL = 64'd0;
         MONTO = 32'd0;
-
         PIN_CORRECTO = 16'b0011010101100110; // PIN 3566
-        BALANCE_INICIAL = 64'd10000;
-        MONTO = 32'd0;
-        #4;
 
 //-----------------------------INICIO DE PRUEBA DE DEPOSITO EXITOSO------------------------------------------
         #8 RESET = 1; //Se libera sistema
         #4 TARJETA_RECIBIDA = 1; // Se recibe la tarjeta
-        #4 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
+        #20 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
         #4 DIGITO = 4'b0011; // Se recibe el primer digito
-        #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
-        #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
+        #1 DIGITO_STB = 1; // Se indica que el digito fue recibido
+        #3 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
         #4 DIGITO = 4'b0101; // Se recibe el segundo digito
-        #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
-        #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
+        #1 DIGITO_STB = 1; // Se indica que el digito fue recibido
+        #3 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
         #4 DIGITO = 4'b0110; // Se recibe el tercer digito  
-        #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
-        #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
+        #1 DIGITO_STB = 1; // Se indica que el digito fue recibido
+        #3 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
         #4 DIGITO = 4'b0110; // Se recibe el cuarto digito
-        #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
-        #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
-        #4 TIPO_TRANS = 0; //Deposito
+        #1 DIGITO_STB = 1; // Se indica que el digito fue recibido
+        #3 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
+        #2 TIPO_TRANS = 0; //Deposito
         #4 MONTO = 32'd10000; // Se recibe el monto a depositar
-        #4 MONTO_STB = 1; // Se indica que el monto fue recibido
+        #2 MONTO_STB = 1; // Se indica que el monto fue recibido
         #4 MONTO_STB = 0; // Se deja de indicar que el monto fue recibido
 //-------------------------------FIN PRUEBA DE DEPOSITO EXITOSO-------------------------------------------
 
+
 //-------------------------------INICIO DE PRUEBA DE RETIRO EXITOSO---------------------------------------        
 	    #4 TARJETA_RECIBIDA = 1; // Se recibe la tarjeta
-        #4 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
+        #20 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
         #4 DIGITO = 4'b0011; // Se recibe el primer digito
         #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
         #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
@@ -75,8 +71,8 @@ module tester(
 //--------------------------------FIN PRUEBA DE RETIRO EXITOSO------------------------------------------
 
 //--------------------------------PRUEBA DE PIN INCORRECTO----------------------------------------------        
-        #6 TARJETA_RECIBIDA = 1; // Se recibe la tarjeta
-        #4 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
+        #4 TARJETA_RECIBIDA = 1; // Se recibe la tarjeta
+        #20 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
         #4 DIGITO = 4'b0011; // Se recibe el primer digito
         #4 DIGITO_STB = 1; // Se indica que el digito fue recibido
         #4 DIGITO_STB = 0; // Se deja de indicar que el digito fue recibido
@@ -116,8 +112,8 @@ module tester(
 //-------------------------------FIN PRUEBA PIN INCORRECTO----------------------------------------------
 
 //------------------------------SALIR DEL ESTADO DE BLOQUEO -------------------------
-        #4 RESET = 0; // Se pone Reset en 0
-        #4 RESET = 1; // Se pone Reset en 1
+        #15 RESET = 0; // Se pone Reset en 0
+        #8 RESET = 1; // Se pone Reset en 1
         #8 TARJETA_RECIBIDA = 1; // Se regresa a esperar la tarjeta
         #4 TARJETA_RECIBIDA = 0; // Se deja de recibir la tarjeta
         #4 DIGITO = 4'b0011; // Se recibe el primer digito
@@ -159,6 +155,6 @@ module tester(
         #4 MONTO_STB = 0; // Se deja de indicar que el monto fue recibido
 //--------------------------------FIN PRUEBA DE RETIRO FALLIDO-------------------------------------------
 
-        $finish;
+        #20 $finish;
     end
 endmodule
