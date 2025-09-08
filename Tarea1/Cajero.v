@@ -40,14 +40,10 @@ module Cajero (
             estado                  <= ESPERANDO_TARJETA;
 	        cantidad_digitos        <= 0;
 	        PIN_ACTUAL              <= 0;
-
 	        intentos_fallidos       <= 0;
             PIN_INCORRECTO          <= 0;
             ADVERTENCIA             <= 0;
             BLOQUEO                 <= 0;
-            // casi_bloqueado	        <= 0;
-
-            // BALANCE_ACTUALIZADO     <= 0;
             BALANCE_STB             <= 0;
             FONDOS_INSUFICIENTES    <= 0;
             ENTREGAR_DINERO         <= 0;
@@ -57,7 +53,7 @@ module Cajero (
             case (estado)
                 // El sistema está esperando la tarjeta
 		        ESPERANDO_TARJETA: begin
-    		    // Si la señal TARJETA_RECIBIDA está activa (la tarjeta fue insertada)
+    		    // Si la señal TARJETA_RECIBIDA está activa
     		    // Cambiar al estado de INGRESANDO_PIN
     		        if (TARJETA_RECIBIDA) begin
         		        estado <= INGRESANDO_PIN;
@@ -68,13 +64,14 @@ module Cajero (
 		        end
 
                 INGRESANDO_PIN: begin
+                    // si hay un intento fallido se pone en alto PIN_INCORRECTO
                     if (intentos_fallidos == 2'd1) begin
                         PIN_INCORRECTO <= 1;
-                    // si hay 2 intentos fallidos se da una advertencia
-                    end else if (intentos_fallidos == 2'd2) begin 
+                    end else if (intentos_fallidos == 2'd2) begin
+                    // si hay dos intentos fallidos se pone en alto ADVERTENCIA
                         ADVERTENCIA <= 1;
                         PIN_INCORRECTO <= 0;
-                    // si hay 3 intentos se bloquea
+                    // si hay 3 intentos fallidos se bloquea
                     end else if (intentos_fallidos == 2'd3) begin
                     	// se pasa ADVERTENCIA a 0, BLOQUEO a 1 y se cambia de estado a BLOQUEADO
                         ADVERTENCIA <= 0;
@@ -85,10 +82,8 @@ module Cajero (
                         ADVERTENCIA <= 0;
                     end
                     
-                    // Si DIGITO_STB = 1 e intentos fallidos es menor a 1
+                    // Si DIGITO_STB = 1 e intentos fallidos es menor a 3
                     if (DIGITO_STB && (intentos_fallidos < 3)) begin
-                    	// Se coloca PIN_INCORRECTO = 0
-                        // PIN_INCORRECTO <= 0;
                         // cantidad_digitos funciona como un contador que indica cuántos dígitos del PIN ya se han ingresado.
                         case (cantidad_digitos) 
                             // Si cantidad_digitos es 2'b00 (o sea, 0 en decimal), ejecuta lo que está en el bloque
@@ -181,7 +176,6 @@ module Cajero (
                         intentos_fallidos       <= 0;
                         PIN_ACTUAL              <= 0;
                         estado                  <= ESPERANDO_TARJETA;
-                        // BALANCE_ACTUALIZADO     <= 0;
                         ADVERTENCIA             <= 0;
                         BLOQUEO                 <= 0;
                         BALANCE_STB             <= 0;
@@ -197,11 +191,7 @@ module Cajero (
                 // Mantiene el sistema bloqueado hasta obtener RESET = 0 y RESET = 1
                 BLOQUEADO: begin
                     if (!RESET) begin
-                        casi_bloqueado <= 1;
-                        estado <= BLOQUEADO;
-                    end else if (casi_bloqueado && RESET) begin
-                    	casi_bloqueado <= 0;
-                    	estado <= ESPERANDO_TARJETA;
+                        estado <= ESPERANDO_TARJETA;
                     end else begin
                     	estado <= BLOQUEADO;
                     end 
