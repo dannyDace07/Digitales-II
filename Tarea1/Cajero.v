@@ -23,7 +23,6 @@ module Cajero (
     reg [15:0] PIN_ACTUAL;
     reg [2:0] estado;
     reg [1:0] cantidad_digitos;
-    reg casi_bloqueado;
 
 
     localparam ESPERANDO_TARJETA      = 3'b000, // Esperando Tarjeta
@@ -47,6 +46,7 @@ module Cajero (
             BALANCE_STB             <= 0;
             FONDOS_INSUFICIENTES    <= 0;
             ENTREGAR_DINERO         <= 0;
+            BALANCE_ACTUALIZADO     <= 0;
 
          
         end else begin // si reset = 1
@@ -116,7 +116,6 @@ module Cajero (
                     if (PIN_ACTUAL != PIN_CORRECTO) begin
                     	// Se suma un intento a intentos_fallidos
                         intentos_fallidos <= intentos_fallidos + 1;
-                        PIN_INCORRECTO <= 1;
                         // Se devuelve al estado de INGRESANDO_PIN
                         estado <= INGRESANDO_PIN;
                         if (intentos_fallidos < 3) begin
@@ -144,6 +143,7 @@ module Cajero (
 
                 PROCESANDO_DEPOSITO: begin
                     if (MONTO_STB) begin
+                        // Se guarda el monto a depositar en BALANCE_ACTUALIZADO
                         BALANCE_ACTUALIZADO <= BALANCE_INICIAL + MONTO;
                         BALANCE_STB <= 1;
                         estado <= FIN;
@@ -156,10 +156,12 @@ module Cajero (
                     if (MONTO_STB) begin
                         // Se verifica si MONTO es mayor a BALANCE_ACTUALIZADO
                         if (MONTO > BALANCE_ACTUALIZADO) begin
+                            // Se activa la salida de FONDOS_INSUFICIENTES
                             FONDOS_INSUFICIENTES <= 1;
                             BALANCE_STB <= 1;
                             estado <= FIN;
                         end else begin
+                            // Se actualiza BALANCE_ACTUALIZADO al ser mayor a MONTO
                             BALANCE_ACTUALIZADO  <= BALANCE_ACTUALIZADO - MONTO;
                             BALANCE_STB <= 1;
                             ENTREGAR_DINERO <= 1;
@@ -170,6 +172,7 @@ module Cajero (
                     end
                 end
 
+                // Estado final del sistema que regresa todo al inicio
                 FIN: begin
                     if (BALANCE_STB) begin
                         cantidad_digitos        <= 0;

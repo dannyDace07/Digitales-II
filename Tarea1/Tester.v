@@ -113,25 +113,7 @@ module tester(
 
 //------------------------------SALIR DEL ESTADO DE BLOQUEO -------------------------
         #20 RESET = 0;        // Señal de reset activa en bajo (sistema en reinicio)
-        #8  RESET = 1;        // Reset desactivado, el sistema comienza la operación normal
-        #8  TARJETA_RECIBIDA = 1;  // Pulso de inserción de tarjeta (señal en alto)
-        #4  TARJETA_RECIBIDA = 0;  // Fin de la detección de tarjeta
-        #4  DIGITO = 4'b0011;      // Se coloca el primer dígito del PIN (3)
-        #4  DIGITO_STB = 1;        // Confirma el registro del dígito
-        #4  DIGITO_STB = 0;        // Fin de la confirmación
-        #4  DIGITO = 4'b0101;      // Segundo dígito del PIN (5)
-        #4  DIGITO_STB = 1;        // Validación del segundo dígito
-        #4  DIGITO_STB = 0;        // Fin del pulso de validación
-        #4  DIGITO = 4'b0110;      // Tercer dígito del PIN (6)
-        #4  DIGITO_STB = 1;        // Confirma la entrada del dígito
-        #4  DIGITO_STB = 0;        // Señal vuelve a bajo
-        #4  DIGITO = 4'b0110;      // Cuarto dígito del PIN (6)
-        #4  DIGITO_STB = 1;        // Confirmación del cuarto dígito
-        #4  DIGITO_STB = 0;        // Fin de la confirmación
-        #4  TIPO_TRANS = 0;        // Selección de transacción: 0 = Depósito
-        #4  MONTO = 32'd10000;     // Se asigna el valor de la transacción (10 000)
-        #4  MONTO_STB = 1;         // El monto queda registrado
-        #4  MONTO_STB = 0;         // Fin de la señal de registro de monto    
+        #8  RESET = 1;        // Reset desactivado, el sistema comienza la operación normal   
 //----------------------FIN DE ACCION EN ESTADO DE BLOQUEO--------------------------------------------
 
 //----------------------INICIO DE PRUEBA DE RETIRO FALLIDO--------------------------------------------
