@@ -1,5 +1,5 @@
-/* `include "cmos_cells_retrasos.v" */
-`include "cmos_cells.v" 
+`include "cmos_cells_retrasos.v" 
+/* `include "cmos_cells.v" */
 
 module Testbench;
 
