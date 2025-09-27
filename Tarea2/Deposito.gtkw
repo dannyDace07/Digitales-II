@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sat Sep 27 04:57:32 2025
+[*]
+[dumpfile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea2/PruebasYosys/cajero.vcd"
+[dumpfile_mtime] "Sat Sep 27 04:51:49 2025"
+[dumpfile_size] 381904
+[savefile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea2/PruebasYosys/Deposito.gtkw"
+[timestart] 0
+[size] 1205 736
+[pos] -51 -51
+*-7.281921 183 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Testbench.
+[sst_width] 233
+[signals_width] 270
+[sst_expanded] 1
+[sst_vpaned_height] 191
+@28
+Testbench.CLK
+Testbench.RESET
+Testbench.TARJETA_RECIBIDA
+@22
+Testbench.DIGITO[3:0]
+@28
+Testbench.DIGITO_STB
+@22
+Testbench.PIN_ACTUAL[15:0]
+Testbench.PIN_CORRECTO[15:0]
+@28
+Testbench.TIPO_TRANS
+@24
+Testbench.MONTO[31:0]
+@28
+Testbench.MONTO_STB
+@24
+Testbench.BALANCE_ACTUALIZADO[63:0]
+Testbench.BALANCE_INICIAL[63:0]
+@28
+Testbench.BALANCE_STB
+@29
+Testbench.estado[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

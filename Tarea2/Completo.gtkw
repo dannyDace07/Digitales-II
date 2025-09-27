@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sat Sep 27 04:47:24 2025
+[*]
+[dumpfile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea2/PruebasYosys/cajero.vcd"
+[dumpfile_mtime] "Sat Sep 27 04:42:28 2025"
+[dumpfile_size] 381904
+[savefile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea2/PruebasYosys/Completo.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] 50 11
+*-10.070331 681 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Testbench.
+[sst_width] 233
+[signals_width] 235
+[sst_expanded] 1
+[sst_vpaned_height] 144
+@200
+-Entradas
+@28
+Testbench.CLK
+Testbench.RESET
+Testbench.TARJETA_RECIBIDA
+@22
+Testbench.PIN_CORRECTO[15:0]
+Testbench.DIGITO[3:0]
+@28
+Testbench.DIGITO_STB
+Testbench.TIPO_TRANS
+@22
+Testbench.MONTO[31:0]
+@28
+Testbench.MONTO_STB
+@22
+Testbench.BALANCE_INICIAL[63:0]
+@200
+-Salidas
+@22
+Testbench.BALANCE_ACTUALIZADO[63:0]
+@28
+Testbench.BALANCE_STB
+Testbench.ENTREGAR_DINERO
+Testbench.FONDOS_INSUFICIENTES
+Testbench.PIN_INCORRECTO
+Testbench.ADVERTENCIA
+Testbench.BLOQUEO
+@22
+Testbench.PIN_ACTUAL[15:0]
+@28
+Testbench.estado[2:0]
+Testbench.cantidad_digitos[1:0]
+@200
+-Registro Interno
+@29
+Testbench.dut.intentos_fallidos[1:0]
+[pattern_trace] 1
+[pattern_trace] 0
