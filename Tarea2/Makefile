@@ -2,9 +2,9 @@
 OUT = sim.vvp
 
 # Archivos fuente
-SRC = Cajero_synth_1.v Tester.v Testbench.v
-#SRC = Cajero_synth_1.v Tester_original.v Testbench.v
-#SRC = Cajero_rtlil_1.v Tester_original.v Testbench.v
+SRC = Cajero_synth.v Tester.v Testbench.v
+#SRC = Cajero_synth.v Tester_original.v Testbench.v
+#SRC = Cajero_rtlil.v Tester_original.v Testbench.v
 #SRC = Cajero.v Tester_original.v Testbench.v
 
 # Regla por defecto

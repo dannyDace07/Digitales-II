@@ -1,4 +1,4 @@
-`include "cmos_cells_retrasos.v" 
+`include "cmos_cells_retardos.v" 
 /* `include "cmos_cells.v" */
 
 module Testbench;
