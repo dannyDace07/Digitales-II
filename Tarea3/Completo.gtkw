@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Oct 10 00:33:16 2025
+[*]
+[dumpfile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea3/Tareita/cpu_test.vcd"
+[dumpfile_mtime] "Fri Oct 10 00:14:29 2025"
+[dumpfile_size] 7356
+[savefile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea3/Tareita/Completo.gtkw"
+[timestart] 0
+[size] 1205 736
+[pos] -51 -1
+*-7.799574 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_cpu.
+[sst_width] 233
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 191
+@200
+-Entradas CPU
+@28
+tb_cpu.clk
+tb_cpu.rst
+@22
+tb_cpu.CPU0.rom_data[15:0]
+tb_cpu.CPU0.ram_data_out[7:0]
+@200
+-Salidas CPU
+@22
+tb_cpu.contador[11:0]
+@28
+tb_cpu.CPU0.request_rom
+tb_cpu.CPU0.ram_request
+@22
+tb_cpu.CPU0.address[11:0]
+@28
+tb_cpu.CPU0.mem_control
+@22
+tb_cpu.CPU0.ram_data_in[7:0]
+@28
+tb_cpu.CPU0.equal
+@200
+-Registros Internos
+@22
+tb_cpu.CPU0.regA[7:0]
+tb_cpu.CPU0.regB[7:0]
+tb_cpu.CPU0.opcode[3:0]
+@28
+tb_cpu.CPU0.ab_select
+@22
+tb_cpu.CPU0.op_address[7:0]
+@28
+tb_cpu.CPU0.estado[2:0]
+@29
+tb_cpu.CPU0.proximo_estado[2:0]
+[pattern_trace] 1
+[pattern_trace] 0
