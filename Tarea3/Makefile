@@ -7,13 +7,14 @@
 # Nombre del ejecutable temporal
 OUT = cpu_sim.vvp
 
-# Archivos fuente del proyecto
+# Archivos fuente del proyecto // Comente y descomente en base a la versión que quiera observar
 SRC = rom.v ram.v tester.v testbench.v cpu.v
+#SRC = rom.v ram.v tester.v testbench.v cpu_synth.v
 
 # Archivo GTKWave a abrir
 GTKW = Completo.gtkw
 
-# Archivo de volcado de valores (debe coincidir con el $dumpfile del testbench)
+# Archivo de volcado de valores 
 VCD = cpu_test.vcd
 
 # Compiladores y herramientas
