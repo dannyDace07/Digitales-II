@@ -23,4 +23,4 @@ abc -liberty ./cmos_cells.lib
 clean
 
 # write synthesized design
-write_verilog cpu_synth1.v
+write_verilog cpu_synth.v
