@@ -8,8 +8,8 @@
 OUT = cpu_sim.vvp
 
 # Archivos fuente del proyecto // Comente y descomente en base a la versión que quiera observar
-SRC = rom.v ram.v tester.v testbench.v cpu.v
-#SRC = rom.v ram.v tester.v testbench.v cpu_synth.v
+#SRC = rom.v ram.v tester.v testbench.v cpu.v
+SRC = rom.v ram.v tester.v testbench.v cpu_synth.v
 
 # Archivo GTKWave a abrir
 GTKW = Completo.gtkw

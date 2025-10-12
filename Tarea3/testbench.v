@@ -85,22 +85,6 @@ cpu CPU0 (
 initial begin
   $dumpfile("cpu_test.vcd");
   $dumpvars(0, tb_cpu);
-  
-  // Mostrar valores iniciales de RAM para carné C33566
-  $display("=== Valores iniciales en RAM (Carné: C33566) ===");
-  #25; // Esperar después del reset
-  $display("RAM[0] = %d (primer dígito: 3)", RAM0.memory[0]);
-  $display("RAM[1] = %d (segundo dígito: 5)", RAM0.memory[1]);
-  $display("RAM[2] = %d (tercer dígito: 6)", RAM0.memory[2]);
-  $display("RAM[3] = %d (cuarto dígito: 6)", RAM0.memory[3]);
-  $display("================================================");
-  $display("\nValores esperados de las operaciones:");
-  $display("ADD: 3 + 5 = 8");
-  $display("SUB: 6 - 6 = 0");
-  $display("OR:  3 | 5 = 7");
-  $display("AND: 3 & 5 = 1");
-  $display("EQUAL: 6 == 6 = true (programa debe terminar)");
-  $display("================================================\n");
 end
 
 endmodule

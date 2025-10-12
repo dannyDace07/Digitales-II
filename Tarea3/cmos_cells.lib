@@ -25,34 +25,6 @@ library(demo) {
     pin(Y) { direction: output;
              function: "(A+B)'"; }
   }
-  cell(AND) {
-    area: 5;
-    pin(A) { direction: input; }
-    pin(B) { direction: input; }
-    pin(Y) { direction: output;
-             function: "(A*B)"; }
-  }
-  cell(OR) {
-    area: 5;
-    pin(A) { direction: input; }
-    pin(B) { direction: input; }
-    pin(Y) { direction: output;
-             function: "(A+B)"; }
-  }
-  cell(XOR) {
-    area: 6;
-    pin(A) { direction: input; }
-    pin(B) { direction: input; }
-    pin(Y) { direction: output;
-             function: "(A*B')+(A'*B)"; }
-  }
-  cell(XNOR) {
-    area: 6;
-    pin(A) { direction: input; }
-    pin(B) { direction: input; }
-    pin(Y) { direction: output;
-             function: "(A*B)+(A'*B')"; }
-  }
   cell(DFF) {
     area: 18;
     ff(IQ, IQN) { clocked_on: C;
