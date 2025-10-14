@@ -35,9 +35,9 @@ module rom (
             12'd13: data = 16'b0100_1_000_00010010;  // STORE B en 018 (guarda 1)
             
             // Prueba EQUAL (comparar valores iguales)
-            12'd14: data = 16'b0011_0_000_00000010;  // LOAD A desde 002 (6)
-            12'd15: data = 16'b0011_1_000_00000011;  // LOAD B desde 003 (6)
-            12'd16: data = 16'b0101_0_000_00000000;  // EQUAL A equals B (6==6, debería terminar con equal=1)
+            12'd14: data = 16'b0011_1_000_00010001;  // LOAD B desde 017 (7)
+            12'd15: data = 16'b0011_0_000_00010001;  // LOAD A desde 017 (7)
+            12'd16: data = 16'b0101_0_000_00000000;  // EQUAL A equals B (7==7, debería terminar con equal=1)
             
             default: data = 16'b0000_0_000_00000000; // instrucción inválida
         endcase
