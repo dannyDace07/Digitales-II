@@ -1,8 +1,8 @@
 # read design 
-read_verilog Cajero.v
+read_verilog cpu.v
 
 # elaborate design hierarchy
-hierarchy -check -top Cajero
+hierarchy -check -top cpu
 
 # the high-level stuff
 proc; opt; fsm; opt; memory; opt
@@ -23,4 +23,4 @@ show
 clean
 
 # write synthesized design
-write_verilog Cajero_synth.v
+write_verilog cpu_synth.v

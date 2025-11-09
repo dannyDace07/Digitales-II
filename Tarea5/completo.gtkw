@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Nov  9 22:14:07 2025
+[*]
+[dumpfile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea5Pruebas/resultados_simple.vcd"
+[dumpfile_mtime] "Sun Nov  9 05:18:11 2025"
+[dumpfile_size] 3480
+[savefile] "/home/danny_ace/DIGITALESII/Digitales-II/Tarea5Pruebas/completo.gtkw"
+[timestart] 0
+[size] 1205 736
+[pos] -101 -101
+*-15.643007 43400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 233
+[signals_width] 219
+[sst_expanded] 1
+[sst_vpaned_height] 191
+@28
+testbench.DUT_Master.CS
+testbench.RESET
+testbench.CKP
+testbench.CPH
+testbench.CLK
+testbench.DUT_Master.SCK
+testbench.run_mode_test.mode[1:0]
+@200
+-Master Signals
+@22
+testbench.DUT_Master.MOSI[15:0]
+testbench.DUT_Master.MISO[15:0]
+testbench.DUT_Master.data_to_send[15:0]
+testbench.DUT_Master.data_received[15:0]
+@200
+-
+-Slave Signals
+@28
+testbench.DUT_Slave1.SS
+@200
+-Slave1
+@22
+testbench.DUT_Slave1.MOSI[15:0]
+testbench.DUT_Slave1.MISO[15:0]
+testbench.DUT_Slave1.data_in_slave[15:0]
+@200
+-Slave2
+@22
+testbench.DUT_Slave2.MOSI[15:0]
+testbench.DUT_Slave2.MISO[15:0]
+testbench.DUT_Slave2.data_in_slave[15:0]
+[pattern_trace] 1
+[pattern_trace] 0
