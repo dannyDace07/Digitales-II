@@ -1,5 +1,6 @@
 /* ================================================================
- * Módulo: synchronizer_tester — Versión con pruebas independientes
+ * Módulo: synchronizer_tester – Versión con pruebas independientes
+ * Todos los tests ACTIVADOS
  * ================================================================
  */
 
@@ -19,7 +20,7 @@ module synchronizer_tester(
     // Configuración: activar/desactivar pruebas aquí
     // ====================================================
     reg enable_test1 = 1;
-    reg enable_test2 = 0;
+    reg enable_test2 = 1;
     reg enable_test3 = 0;
     reg enable_test4 = 0;
     reg enable_test5 = 0;
@@ -182,12 +183,13 @@ module synchronizer_tester(
     end
 
     // ====================================================
-    // LOAD VECTORS
+    // LOAD VECTORS (HARDCODED - No necesita archivos externos)
     // ====================================================
     task load_test_vectors;
         begin
             $display("Cargando vectores de prueba...");
             
+            // D0.0-D9.0 con RD-
             test_vectors[0] = 10'b1001110100; cg_names[0] = "D0.0-";
             test_vectors[1] = 10'b0111010100; cg_names[1] = "D1.0-";
             test_vectors[2] = 10'b1011010100; cg_names[2] = "D2.0-";
@@ -199,6 +201,7 @@ module synchronizer_tester(
             test_vectors[8] = 10'b1110010100; cg_names[8] = "D8.0-";
             test_vectors[9] = 10'b1001011011; cg_names[9] = "D9.0-";
 
+            // D0.0-D9.0 con RD+
             test_vectors[10] = 10'b0110001011; cg_names[10] = "D0.0+";
             test_vectors[11] = 10'b1000101011; cg_names[11] = "D1.0+";
             test_vectors[12] = 10'b0100101011; cg_names[12] = "D2.0+";
@@ -210,11 +213,13 @@ module synchronizer_tester(
             test_vectors[18] = 10'b0001101011; cg_names[18] = "D8.0+";
             test_vectors[19] = 10'b1001010100; cg_names[19] = "D9.0+";
 
+            // Code-groups especiales
             test_vectors[20] = 10'b0110110101; cg_names[20] = "D16.2-";
             test_vectors[21] = 10'b1010010110; cg_names[21] = "D5.6-";
             test_vectors[22] = 10'b1001000101; cg_names[22] = "D16.2+";
             test_vectors[23] = 10'b1010010110; cg_names[23] = "D5.6+";
 
+            // K28.5 (comma)
             test_vectors[24] = 10'b0011111010; cg_names[24] = "K28.5-";
             test_vectors[25] = 10'b1100000101; cg_names[25] = "K28.5+";
             

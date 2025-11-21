@@ -1,5 +1,5 @@
 # ================================================================
-# Makefile para simulación del Sincronizador PCS (Modo TFF)
+# Makefile para simulación del Sincronizador PCS
 # Herramientas: Icarus Verilog + GTKWave
 # ================================================================
 
@@ -11,9 +11,6 @@ GTKWAVE = gtkwave
 # Archivos fuente
 SRC = synchronizer.v synchronizer_tester.v synchronizer_tb.v
 INCLUDES = pcs_defs.vh pcs_cg_defs.vh
-
-# Archivos de datos requeridos
-DATA_FILES = code_groups.txt SUDI.tff sync_state.txt
 
 # Archivos de salida
 OUT = synchronizer_sim
@@ -27,7 +24,7 @@ VCD = synchronizer_waveform.vcd
 all: compile simulate
 
 # Compilar con Icarus Verilog
-compile: check_data
+compile:
 	@echo "================================================"
 	@echo "  Compilando Sincronizador PCS..."
 	@echo "================================================"
@@ -48,11 +45,7 @@ wave:
 	@echo "================================================"
 	@echo "  Abriendo GTKWave..."
 	@echo "================================================"
-	@if [ -f waves.gtkw ]; then \
-		$(GTKWAVE) $(VCD) waves.gtkw & \
-	else \
-		$(GTKWAVE) $(VCD) & \
-	fi
+	$(GTKWAVE) $(VCD) &
 
 # Limpiar archivos generados
 clean:
@@ -63,41 +56,19 @@ clean:
 # Ejecutar todo (compilar, simular, visualizar)
 run: all wave
 
-# Verificar archivos de datos
-check_data:
-	@echo "Verificando archivos de datos..."
-	@for file in $(DATA_FILES); do \
-		if [ -f $$file ]; then \
-			echo "  ✓ $$file encontrado"; \
-		else \
-			echo "  ⚠ $$file NO encontrado (opcional)"; \
-		fi \
-	done
-	@if [ ! -f code_groups.txt ]; then \
-		echo "  ✗ ERROR: code_groups.txt es REQUERIDO"; \
-		exit 1; \
-	fi
-	@echo ""
-
 # Ayuda
 help:
 	@echo "================================================"
-	@echo "  Makefile - Sincronizador PCS (Modo TFF)"
+	@echo "  Makefile - Sincronizador PCS"
 	@echo "================================================"
 	@echo "Targets disponibles:"
-	@echo "  make all        - Compilar y simular"
-	@echo "  make compile    - Solo compilar"
-	@echo "  make simulate   - Solo simular"
-	@echo "  make wave       - Abrir GTKWave"
-	@echo "  make run        - Compilar + simular + visualizar"
-	@echo "  make clean      - Limpiar archivos generados"
-	@echo "  make check_data - Verificar archivos TFF"
-	@echo "  make help       - Mostrar esta ayuda"
-	@echo ""
-	@echo "Archivos requeridos:"
-	@echo "  - code_groups.txt (OBLIGATORIO)"
-	@echo "  - SUDI.tff (opcional)"
-	@echo "  - sync_state.txt (opcional)"
+	@echo "  make all      - Compilar y simular"
+	@echo "  make compile  - Solo compilar"
+	@echo "  make simulate - Solo simular"
+	@echo "  make wave     - Abrir GTKWave"
+	@echo "  make run      - Compilar + simular + visualizar"
+	@echo "  make clean    - Limpiar archivos generados"
+	@echo "  make help     - Mostrar esta ayuda"
 	@echo "================================================"
 
-.PHONY: all compile simulate wave clean run check_data help
+.PHONY: all compile simulate wave clean run help

@@ -259,6 +259,7 @@ module Synchronizer(
                 
                 if (data_valid(rx_code_group)) begin
                     next_state = SYNC_ACQUIRED_1;
+                    next_sync_status = OK;
                 end
                 else begin
                     next_state = LOSS_OF_SYNC;
@@ -269,7 +270,6 @@ module Synchronizer(
             // SYNC_ACQUIRED_1: Sincronización lograda
             // ========================================================
             SYNC_ACQUIRED_1: begin
-                next_sync_status = OK;
                 next_rx_even     = ~rx_even;
                 
                 // Comma en posición impar = ERROR
