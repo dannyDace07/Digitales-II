@@ -21,9 +21,10 @@ Los proyectos desarrollados abarcan distintos conceptos fundamentales del diseñ
 
 ## Estructura del Repositorio
 
-El repositorio se encuentra organizado de la siguiente manera:
-
-
+- Tarea1  
+- Tarea2  
+- Tarea3  
+- Tarea5  
 
 
 Cada carpeta contiene:
@@ -33,13 +34,6 @@ Cada carpeta contiene:
 - Archivos de simulación
 - Testbench (cuando aplica)
 
-## Contenido
-
-Digitales-II
-├── Tarea1
-├── Tarea2
-├── Tarea3
-└── Tarea5
 
 ### Tareas
 
