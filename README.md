@@ -2,7 +2,7 @@
 
 Este repositorio contiene el desarrollo de tareas y proyectos realizados durante el curso **Sistemas Digitales II**, enfocado en el diseño y modelado de sistemas digitales utilizando lenguajes de descripción de hardware.
 
-Los proyectos desarrollados abarcan distintos conceptos fundamentales del diseño digital, incluyendo lógica combinacional, lógica secuencial y diseño estructural utilizando **Verilog** y **SystemVerilog**.
+Los proyectos desarrollados abarcan distintos conceptos fundamentales del diseño digital, incluyendo lógica combinacional, lógica secuencial y diseño estructural utilizando **Verilog**.
 
 ## Objetivos del Repositorio
 
@@ -29,7 +29,7 @@ Los proyectos desarrollados abarcan distintos conceptos fundamentales del diseñ
 
 Cada carpeta contiene:
 
-- Archivos fuente en Verilog / SystemVerilog
+- Archivos fuente en Verilog 
 - Módulos de diseño digital
 - Archivos de simulación
 - Testbench (cuando aplica)
