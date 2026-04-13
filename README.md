@@ -15,7 +15,6 @@ Los proyectos desarrollados abarcan distintos conceptos fundamentales del diseñ
 ## Tecnologías Utilizadas
 
 - Verilog HDL
-- SystemVerilog
 - Simulación de sistemas digitales
 - Diseño lógico digital
 
@@ -46,12 +45,12 @@ Las tareas incluyen la implementación y análisis de diferentes sistemas digita
 
 ## Autor
 
-Danny Gutiérrez Campos 
+Danny Gutiérrez Campos - dannyjgc07@hmail.com - danny.gutierrezcampos@ucr.ac.cr
 
 ## Curso
 
 Sistemas Digitales II  
-Ingeniería Electrónica / Enfasis en Computadores / Universidad de Costa Rica
+Ingeniería Eléctrica / Enfasis en Computadores y Redes / Universidad de Costa Rica
 
 ## Notas
 
